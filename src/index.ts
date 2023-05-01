@@ -33,14 +33,38 @@ const user: {
   skills: ["js", "ts", "react"],
 };
 
-
 // Literal type
 const company: {
-    name: 'The Consolers',
-    employee: number,
-    location: string,
+  name: "The Consolers";
+  employee: number;
+  location: string;
 } = {
-    name: 'The Consolers', // literal type er value chara onno kichu dile error dibe
-    employee: 2203,
-    location: 'Bangladesh'
-}
+  name: "The Consolers", // literal type er value chara onno kichu dile error dibe
+  employee: 2203,
+  location: "Bangladesh",
+};
+
+//TS function
+
+// const myFunc = (a, b) => a+b
+//Error: Parameter 'a' implicitly has an 'any' type.
+//Solution: ts config file > noImplicitAny: false kore dile implicit any type er error ar show korbe na. Not recommended
+
+const addNumber = (num1: number, num2: number): number => num1 + num2;
+
+const arr: number[] = [2, 5, 8];
+
+const sqrArray: number[] = arr.map((e: number) => e * e);
+console.log(sqrArray);
+
+const person: {
+  name: string;
+  balance: number;
+  addBalance(money: number): void; // kichu  na thakle return type void
+} = {
+  name: "Sharif",
+  balance: 5,
+  addBalance(money: number) {
+    console.log(this.balance + money);
+  },
+};
