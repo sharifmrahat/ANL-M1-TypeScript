@@ -77,4 +77,51 @@ const myFunc = (num1: number, num2: number = 10) => {
 
 // myFunc(2) ////default value always last parameter e use korte hoy ts e.
 
-//spread operator:
+//spread operator & destructuring
+
+//Type allias
+
+type StudentType = {
+  name: string,
+  age: number,
+  subjects: string[],
+  address?: string
+}
+
+//union & intersection
+
+//Union type example: (represent OR || operator)
+const someValue: string | number = 'abcd' || 1234  
+const anArray: (string | number)[] = ['abcd', 1234]
+
+
+//Intersection type example: (represent AND && operator)
+
+//declare an enum (not recommended by ts)
+
+enum Role {
+  user = 'user',
+  admin = 'admin',
+  customer = 'customer',
+  employee = 'employee'
+}
+type User = {
+  name: string,
+  email: string,
+  phone: number
+  role: Role
+}
+
+type Customer = User & {
+  company: string,
+  location: string,
+  lastPurchaseDate: Date
+  role: Role.customer  // enum type
+}
+
+type Employee = User & {
+  department: string,
+  designation: string,
+  currentSalary: number
+  role: Role.employee  // enum type
+}
