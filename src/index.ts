@@ -133,3 +133,29 @@ function throwErr(message: string): never {
   throw new Error(message)
 }
 
+//Nullish coalescing Operator
+
+const isAuthenticate = null  //important note: null or undefined chara baki sob kichuke se value or true hisebe dhorbe. jemon ekhane '' dile eita true hobe.
+
+const currentUser = isAuthenticate ?? 'guest'
+
+console.log(currentUser)// output: guest
+
+
+//currying function
+function generateAdder(a: number): (b: number) => number {
+
+  return function(b: number) {
+
+    return a + b;
+
+  };
+
+}
+
+const addTwo = generateAdder(2);
+
+console.log(addTwo(3));
+
+console.log(addTwo(5));
+
