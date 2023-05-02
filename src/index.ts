@@ -125,3 +125,11 @@ type Employee = User & {
   currentSalary: number
   role: Role.employee  // enum type
 }
+
+
+//never type: kokhono kono kichui return korbe na.
+
+function throwErr(message: string): never {
+  throw new Error(message)
+}
+
