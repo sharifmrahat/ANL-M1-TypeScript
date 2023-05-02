@@ -68,3 +68,13 @@ const person: {
     console.log(this.balance + money);
   },
 };
+
+
+//default value of parameter:
+const myFunc = (num1: number, num2: number = 10) => {
+
+}
+
+// myFunc(2) ////default value always last parameter e use korte hoy ts e.
+
+//spread operator:
