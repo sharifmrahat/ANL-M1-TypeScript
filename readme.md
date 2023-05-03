@@ -1,4 +1,4 @@
-## Apollo Next Level | Programming Hero
+## Apollo Next Level
 
 ### Mission-1: Be A Typescript Technocrat
 
