@@ -19,3 +19,4 @@ const genericTupleArray: GenericTuple<string, number, { company: string }> = [
   123,
   { company: "nothing" },
 ];
+
