@@ -1,4 +1,4 @@
-//Generic constrains
+//Generic constraints
 interface MyInfoType {
     name: string,
     age: number,
