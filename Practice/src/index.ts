@@ -44,7 +44,11 @@ const arr1: arrOfNum = [1, 2, 6, 3, 3];
 const arr2: arrOfNum = [1, 6, 2, 3, 3, 5];
 
 const commonEl = matchingNumbers(arr1, arr2);
-console.log(commonEl);
+// console.log(commonEl);
+
+
+//----------------------------> Problem: 2 <-----------------------------\\
+
 
 // 2. You have an interface for `Product`, containing the product's id, name, price, and category. You want to filter an array of Products based on a specific criterion and value.
 
@@ -119,8 +123,34 @@ const myCriteria: Criterion<number> = { type: "price", value: 100 };
 
 const myProduct = filterProductsByCriterion(products, myCriteria);
 
-console.log(myProduct);
+// console.log(myProduct);
 
 
-//----------------------------> Problem: 2 <-----------------------------\\
+//----------------------------> Problem: 3 <-----------------------------\\
 
+// 3. Suppose you have an array of tuples, where each tuple represents a product and contains the product name, price, and quantity. Write a TypeScript function that calculates the total cost of all the products in the array, using a generic type for the tuple and a type alias for the array.
+
+type ProductTuple = [string, number, number];
+type ProductArray = ProductTuple[];
+
+const calculateTotalCost = (products: ProductArray): number => {
+  let totalCost = 0;
+
+  for (const [name, price, quantity] of products) {
+    const productCost = price * quantity;
+    totalCost += productCost;
+  }
+
+  return totalCost;
+};
+
+const myProducts: ProductArray = [
+  ['Apple', 10, 2],
+  ['Orange', 15, 3],
+  ['Banana', 20, 1],
+];
+
+const totalCost = calculateTotalCost(myProducts);
+// console.log(totalCost);
+
+  
