@@ -153,4 +153,101 @@ const myProducts: ProductArray = [
 const totalCost = calculateTotalCost(myProducts);
 // console.log(totalCost);
 
-  
+
+//----------------------------> Problem: 4 <-----------------------------\\
+
+// Suppose you have an array of numbers in TypeScript, and you want to find the sum of all the even numbers in the array. How would you approach this problem and write code to solve it?
+
+//Solution-1:
+// const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let sum = 0;
+
+// for (const number of numbers) {
+//   if (number % 2 === 0) {
+//     sum += number;
+//   }
+// }
+
+// console.log(`Sum of even numbers: ${sum}`);
+
+//Solution-2:
+
+const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const sum = numbers.reduce((acc, number) => acc + (number % 2 === 0 ? number : 0), 0);
+
+// console.log(`Sum of even numbers: ${sum}`);
+
+
+//----------------------------> Problem: 5 <-----------------------------\\
+
+// Create an interface called Person that includes properties for name (string), age (number), and email (string). Then create an array of Person objects and write a function that takes the array and a string email as parameters, and returns the Person object that matches the email or null if no match is found.
+
+interface Person {
+  name: string;
+  age: number;
+  email: string;
+}
+
+function findPersonByEmail(people: Person[], email: string): Person | null {
+  const foundPerson = people.find((person) => person.email === email);
+  return foundPerson || null;
+}
+
+const people: Person[] = [
+  { name: "John Doe", age: 25, email: "john@example.com" },
+  { name: "Jane Smith", age: 30, email: "jane@example.com" },
+  { name: "Mike Johnson", age: 35, email: "mike@example.com" },
+];
+// Example usage
+const emailToSearch = "jane@example.com";
+const personFound = findPersonByEmail(people, emailToSearch);
+
+// console.log(personFound)
+
+
+//----------------------------> Problem: 6 <-----------------------------\\
+
+// Create a TypeScript program that declares an array of numbers. Use the spread operator to pass the elements of the array as arguments to a function that finds the minimum and maximum values of the array. Use destructuring to assign the minimum and maximum values to separate variables, and log them to the console.
+
+function findMinMax(numbers: number[]): [number, number] {
+  const min = Math.min(...numbers);
+  const max = Math.max(...numbers);
+  return [min, max];
+}
+
+const allNumbers = [10, 5, 8, 3, 12, 6];
+
+const [minValue, maxValue] = findMinMax(allNumbers);
+
+// console.log("Minimum value:", minValue);
+// console.log("Maximum value:", maxValue);
+
+
+//----------------------------> Problem: 7 <-----------------------------\\
+
+// Create a TypeScript program that declares a function that takes a string parameter with a literal type of "red", "green", or "blue", and an optional boolean parameter. If the boolean parameter is true, log the string parameter in uppercase. If the boolean parameter is false or not provided, log the string parameter in lowercase.
+
+type LiteralColorType = 'red' | 'green' | 'blue'
+const colorFunction = (color: LiteralColorType, available?: boolean): string => {
+  if(available)
+  return color.toUpperCase()
+  else
+  return color.toLowerCase()
+}
+
+const colorResult = colorFunction('blue', true)
+console.log(colorResult)
+
+//solution-2:
+// function logColor(color: "red" | "green" | "blue", uppercase?: boolean) {
+//   if (uppercase) {
+//     console.log(color.toUpperCase());
+//   } else {
+//     console.log(color.toLowerCase());
+//   }
+// }
+
+// // Example usage
+// logColor("red", true);    // Output: "RED"
+// logColor("green", false); // Output: "green"
+// logColor("blue");         // Output: "blue"
